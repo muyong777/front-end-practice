@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一版</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!--
+      【本文件练什么】你的第一个"网页应用"：待办清单
+      【当前进度】HTML 骨架已完成，js/myscript.js 还是空的 —— 全部交互要靠它实现
+      【要实现的功能】1.点"添加"追加一条  2.每条后面有删除按钮  3.点文字划删除线（已完成）
+                          4.刷新后数据还在（localStorage）  5.显示"还剩 N 项未完成"
+      【对应学习日】计划里的 Day 19（事件）→ Day 20（增删+存储）→ Day 21（整合）
+    -->
+    <h2>我的代办事项</h2>
+    <div class="input_area">
+        <!-- 输入框：id 让 JS 能找到它；placeholder 是提示文字 -->
+        <input type="text" id="input_area" placeholder="你要干点啥">
+        <!-- 按钮：type 默认是 submit，在 form 里会提交表单；这里没有 form，所以就是普通点击事件 -->
+        <button id="add_btn">添加</button>
+        <!-- 任务列表容器：JS 往这里 appendChild 新建的 li -->
+        <ul id="task_list">
+            <!-- 这两条是写死的静态示例，JS 上来后应该把它们渲染出来，而不是写死在 HTML 里 -->
+            <li>吃饭<button class="debate-btn">删除</button></li>
+            <li>睡觉<button class="debate-btn">删除</button></li>
+        </ul>
+    </div>
+</body>
+</html>

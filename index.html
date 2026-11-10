@@ -6,11 +6,43 @@
     <title>HTML属性</title>
 </head>
 <body>
+    <!--
+      【本文件练什么】链接的 4 种写法 + 表单最基础用法
+      【复习提示】看懂 <a> 的 href 和 target，<input> 的 type 和 placeholder
+    -->
+    <style>
+        /* 内嵌样式：一般放 head 里，这里放 body 也能生效，但不规范 */
+        body{
+            background-color: aqua;   /* 背景色 */
+            height: 10000px;           /* 故意拉长，方便你滚动测试悬浮广告 */
+        }
+    </style>
+
+    <!-- ① 外链：href 写完整网址，target="_blank" 表示新标签页打开 -->
     <a href="https://ys.mihoyo.com/?utm_source=yuanshen_web" target="_blank">这是一个超链接</a>
+    <!-- ② 站内链接：写相对路径，同文件夹下直接写文件名即可（点它会跳到 demo.html） -->
     <a href="demo.html">最初页</a>
+    <!-- ③ 占位链接：href="#" 只表示"还没定"，点了不跳转但仍有链接样式 -->
     <a href="##" target="_blank">有个链接</a>
+    <!-- ④ 站内链接 + 新标签页 -->
+    <a href="xiaoguanggao.html" target="_blank">点击领原石</a>
+
+    <!--
+      表单：action 指向"提交到哪里"，留空 = 提交到当前页（点了会刷新，测试时正常）
+    -->
 <form action="">
+    <!--
+      输入框：
+        type="text"    文本框（默认值）
+        style="..."     行内样式：border 控制边框粗细和颜色（3px solid red = 3像素 实线 红色）
+        width="50"     ❌ 注意：input 没有 width 属性！想控制宽度请用 CSS 的 width: 50px;
+                       HTML 自带的宽度属性叫 size="50"（单位是字符个数，只能粗调）
+        placeholder     灰色提示文字，一输入就消失
+        name            字段名，提交时作为 key 发给服务器，写了才真的会被提交
+        id              页面内唯一标识，给 <label for> 和 JS 用
+    -->
     <input type="text"  style="border: 3px solid red;" width="50" placeholder="请输入班助的话" name="" id="">
+    <!-- type="submit" 浏览器会自动生成一个提交按钮，中文环境显示"提交"，文字可用 value 改 -->
     <input type="submit" name="" id="">
 </form>
 </body>

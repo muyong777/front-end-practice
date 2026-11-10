@@ -12,9 +12,8 @@
     <ul><li>无序列表元素1</li>
     <li>无序列表元素2</li>
     <li>无序列表元素3</li>
-    <li>无序列表元素3</li>
-    <ul>
-    <ol>
+    <li>无序列表元素3</li></ul>
+    </ol>
         <li>有序列表元素1</li>
         <li>有序列表元素1</li>
         <li>有序列表元素1</li>
@@ -28,6 +27,7 @@
         <li>有序列表元素1</li>
         <li>有序列表元素1</li>
     </ol>
+    <p>@xjh学长随意雷霆舒骚神速爆塞随心配任何人 我想骂这个人了<br>我等会儿拉你我去叫学长好了就讲</p>
     <table border="0.5">
         <tr>
             <th>列标题</th>
@@ -38,5 +38,39 @@
             <td>元素3</td>
         </tr>
     </table>
+    <style>
+        .father{
+            height: 350px;
+            background-color: aqua;
+
+        }
+        .son{
+            height: 100px;
+            width:100px;
+            background-color:crimson;
+            position:fixed;top:0;right:0;
+        }
+        body{
+            height: 2000px; 
+            background-color: #f0f0f0;
+        }
+        .guanggao{
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            width: 150px;  /* 宽度根据你的图片比例来调 */
+            height: 150px; /* 高度根据你的图片比例来调 */
+            z-index: 999;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            overflow: hidden; /* 防止图片四个角溢出圆角 */
+        }
+    </style>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="guanggao">
+        <a href="https://vjudge.net/article/4229">点击成为计算机之神</a>
+    </div>
 </body>
 </html>

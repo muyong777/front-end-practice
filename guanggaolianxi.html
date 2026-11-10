@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px; 
+            background-color: #f0f0f0;
+        }
+    .ad{
+        position:fixed;
+        right: 0;
+        top: 150px;
+        width: 500px;
+        height: 300px;
+        z-index: 999;
+    }
+    .ad img {
+    width: 100%;      /* 宽度撑满盒子 */
+    height: 100%;     /* 高度撑满盒子 */
+    object-fit: cover;/* 关键！按比例缩放，多余部分裁掉，保证不变形 */
+    display: block;   /* 消除图片底部的幽灵白边 */
+}
+    </style>
+</head>
+<body>
+    <h1>
+        欢迎来看这个雷霆网页
+    </h1>
+    <div class="ad">
+        <a href="https://ys.mihoyo.com" target="_blank"><img src="./tupian.images/qyf.jpg" alt="神图"></a>
+    </div>
+
+</body>
+</html>

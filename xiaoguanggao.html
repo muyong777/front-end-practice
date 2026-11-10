@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>悬浮小广告</title>
+    <style>
+        /* 页面本身的内容 */
+        body {
+            height: 2000px; /* 故意写长一点，方便你滚动测试 */
+            background-color: #f0f0f0;
+        }
+
+        /* 小广告的样式（核心！） */
+        .ad-box {
+            position: fixed;      /* 👈 固定定位，死死贴在屏幕上 */
+            right: 20px;          /* 👈 距离屏幕右侧 20px */
+            bottom: 50px;         /* 👈 距离屏幕底部 50px */
+            width: 120px;
+            height: 120px;
+            background-color: #ff4d4f; /* 经典广告红 */
+            border-radius: 10px;  /* 圆角好看点 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* 加个阴影更有立体感 */
+            z-index: 999;         /* 👈 极其重要！保证它永远在最顶层，不被别的元素盖住 */
+            display: flex;        /* 用弹性盒子让字居中 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 链接的样式 */
+        .ad-box a {
+            color: white;         /* 字体白色 */
+            text-decoration: none; /* 去掉超链接默认的下划线 */
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 你的网页正常内容 -->
+    <h1>欢迎来到我的网页</h1>
+    <p>往下滚动网页，看看右下角的小广告有没有跟着滚。</p>
+
+    <!-- 悬浮小广告 -->
+    <div class="ad-box">
+        <a href="https://ys.mihoyo.com" target="_blank">点我<br>领原石</a>
+    </div>
+
+</body>
+</html>

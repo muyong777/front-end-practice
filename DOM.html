@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+      【本文件练什么】JS 怎么"找到"网页里的元素 —— 这是所有交互的第一步
+      【三步心法】找到元素 → 改内容 → 绑事件
+      【调试方法】F12 打开控制台(Console)，console.log 打印出来的东西能直接看到
+    -->
+    <!-- id 选择器：全页面唯一，像身份证 -->
+    <div id="box1">这是一个id选择器标签</div>
+    <!-- class 选择器：可重复，像班级名 -->
+    <div class="box2">这是一个类选择器标签</div>
+    <!-- 普通标签选择器：直接按标签名找 -->
+    <div>这是一个普通选择器标签</div>
+    <script>
+    // 按 id 找 → 返回【一个】元素对象
+    var xjh=document.getElementById('box1');
+    console.log(xjh);          // 在控制台里可以看到这个 div 对象
+
+    // 按 class 找 → 返回【集合】（HTMLCollection），不是单个元素！
+    var shy=document.getElementsByClassName('box2');
+    console.log(shy);          // 想取第一个要写 shy[0]
+
+    // 口诀：getElement<b>ById</b> 单数返回一个，getElements<b>ByClassName</b> 复数返回一堆
+    // 以后更推荐用 querySelector('.box2') 统一写法（单数）和 querySelectorAll('.box2')（复数）
+    </script>
+</body>
+</html>

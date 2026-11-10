@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前端速查表 · 记忆口诀版</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+        line-height: 1.75;
+        color: #1f2937;
+        background: #f6f7f9;
+    }
+    header {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: #fff;
+        padding: 28px 32px;
+    }
+    header h1 { margin: 0 0 6px; font-size: 26px; }
+    header p { margin: 0; opacity: .9; font-size: 14px; }
+    .wrap { display: flex; align-items: flex-start; gap: 24px; padding: 24px 32px 80px; }
+    nav {
+        position: sticky; top: 16px; width: 220px; flex-shrink: 0;
+        background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px;
+        font-size: 14px;
+    }
+    nav a { display: block; color: #374151; text-decoration: none; padding: 5px 0; border-radius: 6px; }
+    nav a:hover { background: #eff6ff; color: #2563eb; }
+    nav .nt { font-weight: bold; margin-bottom: 8px; color: #111827; }
+    main { flex: 1; min-width: 0; }
+    section {
+        background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+        padding: 20px 24px; margin-bottom: 22px;
+    }
+    h2 { margin: 0 0 14px; font-size: 20px; color: #111827; border-left: 5px solid #2563eb; padding-left: 10px; }
+    h3 { font-size: 16px; color: #374151; margin: 18px 0 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0 14px; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: bold; color: #111827; }
+    code { background: #f3f4f6; padding: 1px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 13px; color: #b91c1c; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
+    pre code { background: none; color: #e2e8f0; padding: 0; }
+    .mnemonic {
+        background: #fffbeb; border: 1px solid #fcd34d; border-left: 5px solid #f59e0b;
+        border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 14px;
+    }
+    .mnemonic b { color: #b45309; }
+    .tip { background: #ecfdf5; border: 1px solid #6ee7b7; border-left: 5px solid #10b981; border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 14px; }
+    .tip b { color: #047857; }
+    .warn { background: #fef2f2; border: 1px solid #fca5a5; border-left: 5px solid #ef4444; border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 14px; }
+    .warn b { color: #b91c1c; }
+    details { border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 14px; margin: 8px 0; background: #fafafa; }
+    summary { cursor: pointer; font-weight: bold; color: #2563eb; }
+    .tag { display: inline-block; background: #eef2ff; color: #4338ca; border-radius: 4px; padding: 1px 8px; font-size: 13px; margin: 2px 2px; }
+</style>
+</head>
+<body>
+<header>
+    <h1>前端速查表 · 记忆口诀版</h1>
+    <p>写代码前先翻这里 · 每个知识点都配了「口诀」和「你代码里的例子」· 建议每隔 1 天回看一次</p>
+</header>
+
+<div class="wrap">
+<nav>
+    <div class="nt">目录</div>
+    <a href="#s1">1. 页面骨架</a>
+    <a href="#s2">2. 文本标签</a>
+    <a href="#s3">3. 链接与图片</a>
+    <a href="#s4">4. 列表与表格</a>
+    <a href="#s5">5. 表单</a>
+    <a href="#s6">6. CSS 选择器</a>
+    <a href="#s7">7. 盒模型</a>
+    <a href="#s8">8. display 显示模式</a>
+    <a href="#s9">9. 定位四兄弟</a>
+    <a href="#s10">10. 字体文字背景</a>
+    <a href="#s11">11. Flex 弹性布局</a>
+    <a href="#s12">12. JS 与 DOM</a>
+    <a href="#s13">13. Git 速查</a>
+    <a href="#s14">14. 自测题</a>
+    <a href="#s15">15. 踩坑字典</a>
+</nav>
+
+<main>
+
+<section id="s1">
+<h2>1. 页面骨架（每页固定这 5 行）</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;网页标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    页面内容
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<table>
+<tr><th>标签</th><th>作用</th><th>不写会怎样</th></tr>
+<tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>声明这是 HTML5，浏览器用标准模式渲染</td><td>页面可能进入「怪异模式」，布局诡异</td></tr>
+<tr><td><code>&lt;html lang="zh-CN"&gt;</code></td><td>根节点，lang 告诉浏览器/读屏软件这页是什么语言</td><td>读屏软件会按英文念中文</td></tr>
+<tr><td><code>&lt;meta charset="UTF-8"&gt;</code></td><td>字符编码，防中文乱码</td><td>出现「锟斤拷」乱码</td></tr>
+<tr><td><code>&lt;meta viewport&gt;</code></td><td>手机端按设备宽度显示页面</td><td>手机上网页缩成一团看不清</td></tr>
+<tr><td><code>&lt;title&gt;</code></td><td>浏览器标签页标题，也是搜索结果标题</td><td>标签页显示文件名</td></tr>
+<tr><td><code>&lt;head&gt;</code></td><td>放「看不见的设置」：编码、标题、CSS 引入</td><td>—</td></tr>
+<tr><td><code>&lt;body&gt;</code></td><td>放「看得见的内容」</td><td>内容会跑到 head 里，页面空白</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>doctype 开门，html 大厅，head 后台，body 舞台。head 管设置，body 管内容。</div>
+<div class="tip"><b>你的例子：</b>index.html / demo.html / todo.html 全是这个骨架，复制过来改 title 和 body 就行。</div>
+</section>
+
+<section id="s2">
+<h2>2. 文本标签全家桶</h2>
+<table>
+<tr><th>标签</th><th>作用</th><th>备注</th></tr>
+<tr><td><code>&lt;h1&gt;~&lt;h6&gt;</code></td><td>标题，h1 最大 h6 最小</td><td>一个页面建议只有 1 个 h1</td></tr>
+<tr><td><code>&lt;p&gt;</code></td><td>段落</td><td>段落之间默认有间距</td></tr>
+<tr><td><code>&lt;b&gt;</code></td><td>加粗（bold）</td><td>只管显示，不强调语义</td></tr>
+<tr><td><code>&lt;strong&gt;</code></td><td>加粗且有语义（重要）</td><td>能用 strong 就别用 b</td></tr>
+<tr><td><code>&lt;i&gt;</code></td><td>斜体（italic）</td><td>也能表示「外来词」</td></tr>
+<tr><td><code>&lt;em&gt;</code></td><td>斜体且有语义（强调）</td><td>—</td></tr>
+<tr><td><code>&lt;u&gt;</code></td><td>下划线（underline）</td><td>—</td></tr>
+<tr><td><code>&lt;s&gt;</code></td><td>删除线（strike）</td><td>表示「此内容作废」</td></tr>
+<tr><td><code>&lt;br&gt;</code></td><td>强制换行（break）</td><td>自闭合标签，没有结束标签</td></tr>
+<tr><td><code>&lt;hr&gt;</code></td><td>水平分割线</td><td>自闭合</td></tr>
+<tr><td><code>&lt;span&gt;</code></td><td>行内小容器（不换行）</td><td>用来给一小段字加样式</td></tr>
+<tr><td><code>&lt;div&gt;</code></td><td>块级容器（独占一行）</td><td>用来分块，几乎不写文字</td></tr>
+<tr><td><code>&amp;nbsp;</code></td><td>一个不换行的空格</td><td>&amp; 开头叫「实体」</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>b 加粗、i 斜体、u 下划、s 删除、br 换行。<br>
+<b>四个英文字母对应四个中文意思：</b>b-bold、i-italic、u-underline、s-strike，记住英文首字母就不会错。</div>
+<div class="warn"><b>注意：</b>HTML 里想显示 &lt; &gt; &amp; 这三个符号本身，要写成 <code>&amp;lt;</code> <code>&amp;gt;</code> <code>&amp;amp;</code>。</div>
+</section>
+
+<section id="s3">
+<h2>3. 链接与图片</h2>
+<table>
+<tr><th>写法</th><th>含义</th><th>举例</th></tr>
+<tr><td><code>href="demo.html"</code></td><td>站内相对链接（同文件夹）</td><td>你 index.html 里的「最初页」</td></tr>
+<tr><td><code>href="https://..."</code></td><td>绝对链接（外站）</td><td>你的原神链接</td></tr>
+<tr><td><code>href="#"</code></td><td>占位符：点了不跳，但有下划线样式</td><td>你代码里的「有个链接」</td></tr>
+<tr><td><code>href="#某id"</code></td><td>页内锚点，跳到本页 id 位置</td><td>配合 <code>id="header"</code> 使用</td></tr>
+<tr><td><code>target="_blank"</code></td><td>新标签页打开</td><td>你的外链都加了这个</td></tr>
+<tr><td><code>target="_self"</code></td><td>当前页打开（默认）</td><td>站内链接用这个</td></tr>
+</table>
+<pre><code>&lt;img src="./tupian.images/qyf.jpg" alt="神图"&gt;</code></pre>
+<table>
+<tr><th>属性</th><th>作用</th></tr>
+<tr><td><code>src</code></td><td>图片地址（相对路径用 <code>./</code> 或 <code>../</code>）</td></tr>
+<tr><td><code>alt</code></td><td>图片加载失败/读屏时显示的替代文字（必写）</td></tr>
+<tr><td><code>width/height</code></td><td>图片显示尺寸</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>a 靠 href 出门，img 靠 src 进门；target="_blank" = 新开一扇窗。</div>
+</section>
+
+<section id="s4">
+<h2>4. 列表与表格</h2>
+<table>
+<tr><th>标签</th><th>作用</th></tr>
+<tr><td><code>&lt;ul&gt;</code></td><td>无序列表（默认圆点）</td></tr>
+<tr><td><code>&lt;ol&gt;</code></td><td>有序列表（默认数字）</td></tr>
+<tr><td><code>&lt;li&gt;</code></td><td>列表项，必须放在 ul/ol 里面</td></tr>
+<tr><td><code>&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</code></td><td>描述列表（术语-解释）</td></tr>
+<tr><td><code>&lt;table&gt;&lt;tr&gt;&lt;th&gt;&lt;td&gt;</code></td><td>表格：行 / 表头 / 单元格</td></tr>
+<tr><td><code>colspan="2"</code></td><td>横向合并 2 列</td></tr>
+<tr><td><code>rowspan="2"</code></td><td>纵向合并 2 行</td></tr>
+</table>
+<div class="warn"><b>你的 demo.html 有个小 bug：</b><code>&lt;/ul&gt;</code> 和 <code>&lt;ol&gt;</code> 之间的换行多了一个，导致 <code>&lt;ol&gt;</code> 列表项被浏览器自动纠错修复。标准写法是 <code>&lt;ul&gt;…&lt;/ul&gt;</code> 紧跟 <code>&lt;ol&gt;…&lt;/ol&gt;</code>。</div>
+<div class="mnemonic"><b>口诀：</b>ul 无序、ol 有序、li 是「粒」；table 里面 tr 一行，th 表头，td 数据。</div>
+</section>
+
+<section id="s5">
+<h2>5. 表单（重点，你正在学的部分）</h2>
+<pre><code>&lt;form action="提交到哪个地址" method="get/post"&gt;
+    &lt;label for="pwd"&gt;密码：&lt;/label&gt;
+    &lt;input type="password" id="pwd" name="pwd" placeholder="请输入密码"&gt;
+    &lt;select name="city"&gt;
+        &lt;option value="jx"&gt;江西&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;textarea name="txt" rows="4" cols="30"&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="提交"&gt;
+    &lt;input type="reset" value="重置"&gt;
+    &lt;button type="button"&gt;普通按钮&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<table>
+<tr><th>type 值</th><th>显示成什么</th></tr>
+<tr><td><code>text</code></td><td>普通文本框（默认）</td></tr>
+<tr><td><code>password</code></td><td>密码框，输入显示成小圆点</td></tr>
+<tr><td><code>radio</code></td><td>单选圆圈，同组靠 <code>name</code> 相同来互斥</td></tr>
+<tr><td><code>checkbox</code></td><td>复选方框，可多选</td></tr>
+<tr><td><code>submit</code></td><td>提交按钮（文字跟随浏览器语言，中文环境显示「提交」）</td></tr>
+<tr><td><code>reset</code></td><td>重置按钮，清空表单</td></tr>
+<tr><td><code>button</code></td><td>普通按钮，不提交表单</td></tr>
+<tr><td><code>file</code></td><td>选文件</td></tr>
+<tr><td><code>hidden</code></td><td>隐藏字段，用户看不到但会提交</td></tr>
+<tr><td><code>number / date / email / color / range</code></td><td>带格式校验的专用控件</td></tr>
+</table>
+<table>
+<tr><th>关键属性</th><th>作用</th></tr>
+<tr><td><code>name</code></td><td>字段名，提交时以它为 key 发送，<b>必须有</b></td></tr>
+<tr><td><code>id</code></td><td>页面内唯一标识，配合 <code>label for</code> 和 JS 使用</td></tr>
+<tr><td><code>value</code></td><td>默认值 / 按钮上的文字</td></tr>
+<tr><td><code>placeholder</code></td><td>灰色提示文字，一输入就消失</td></tr>
+<tr><td><code>maxlength</code></td><td>最多输入几个字符</td></tr>
+<tr><td><code>size</code></td><td>文本框宽度（按字符数，只能粗调）</td></tr>
+<tr><td><code>required</code></td><td>必填，不填不许提交</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>form 是「表单」，label 是「标签」，input 是「输入框」，button 是「按钮」，select 是「下拉」，textarea 是「大文本框」。<br>
+<b>label for 和 input 的 id 必须一模一样，点标签才能聚焦输入框。</b></div>
+<div class="warn"><b>坑：</b>type 值拼错浏览器不报错，会悄悄变成 text。你踩过 <code>subbmit</code> 的坑。</div>
+</section>
+
+<section id="s6">
+<h2>6. CSS 选择器（CSS 靠它找到元素）</h2>
+<table>
+<tr><th>选择器</th><th>写法</th><th>匹配谁</th></tr>
+<tr><td>标签选择器</td><td><code>div { }</code></td><td>所有 div</td></tr>
+<tr><td>class 选择器</td><td><code>.box2 { }</code></td><td>所有 class="box2"（可重复）</td></tr>
+<tr><td>id 选择器</td><td><code>#box1 { }</code></td><td>id="box1"（全页唯一）</td></tr>
+<tr><td>通配选择器</td><td><code>* { }</code></td><td>所有元素（常用于全局重置）</td></tr>
+<tr><td>后代选择器</td><td><code>.ad img { }</code></td><td>.ad 里面的 img（你的代码用过）</td></tr>
+<tr><td>直接子元素</td><td><code>.ad &gt; img { }</code></td><td>只算第一层子元素</td></tr>
+<tr><td>并列选择器</td><td><code>h1, h2 { }</code></td><td>h1 和 h2 都算</td></tr>
+<tr><td>伪类</td><td><code>a:hover { }</code></td><td>鼠标悬停时</td></tr>
+<tr><td>伪元素</td><td><code>p::before { }</code></td><td>在元素内部前面生成内容</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>点（.）是班级，井（#）是身份证，星星（*）是全体。class 可重复，id 唯一。</div>
+<div class="tip"><b>优先级（从高到低）：</b>id 选择器 &gt; class 选择器 &gt; 标签选择器；同级时<b>后写的赢</b>；行内 style 最高。</div>
+</section>
+
+<section id="s7">
+<h2>7. 盒模型（最核心的 CSS 概念）</h2>
+<pre><code>&lt;div class="box"&gt;内容&lt;/div&gt;
+
+.box {
+    width: 200px;      /* 内容宽度 */
+    height: 100px;     /* 内容高度 */
+    padding: 20px;     /* 内边距：内容与边框之间的空隙 */
+    border: 5px solid black;  /* 边框 */
+    margin: 30px;      /* 外边距：盒子与别的盒子的距离 */
+    box-sizing: border-box;  /* 一键解决宽高被撑大的问题 */
+}</code></pre>
+<div class="mnemonic"><b>口诀（从里到外）：</b>内容 content → 内边距 padding → 边框 border → 外边距 margin。<br>
+念成 <b>「内容 -  Padding -  Border -  Margin」</b>，顺序和字母缩写 <b>CPBM</b> 一致（由内向外）。</div>
+<div class="warn"><b>最常见的坑：</b>不写 <code>box-sizing: border-box</code> 时，width 只算内容宽，加上 padding 和 border 会把盒子撑大。加了它，width 就是「总宽」，最省心。<br>
+全局重置写法：<code>* { box-sizing: border-box; margin: 0; padding: 0; }</code></div>
+</section>
+
+<section id="s8">
+<h2>8. display 显示模式</h2>
+<table>
+<tr><th>值</th><th>特点</th><th>能设宽高吗</th></tr>
+<tr><td><code>block</code></td><td>独占一行，宽度自动撑满</td><td>能</td></tr>
+<tr><td><code>inline</code></td><td>和文字一样排队，可换行</td><td><b>不能</b>（宽高无效）</td></tr>
+<tr><td><code>inline-block</code></td><td>既能排队又能设宽高</td><td>能</td></tr>
+<tr><td><code>flex</code></td><td>开启弹性布局（父容器上写）</td><td>能</td></tr>
+<tr><td><code>none</code></td><td>完全隐藏（display:none）</td><td>—</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>block 独占一行，inline 排队站，inline-block 又排队又能量。span 是 inline，div 是 block，img 是 inline-block。</div>
+</section>
+
+<section id="s9">
+<h2>9. 定位四兄弟（你已经会用 fixed 了）</h2>
+<table>
+<tr><th>值</th><th>参照谁</th><th>记忆法</th></tr>
+<tr><td><code>static</code>（默认）</td><td>不定位，老老实实按文档流排</td><td>static = 静止</td></tr>
+<tr><td><code>relative</code></td><td>相对自己原来的位置偏移</td><td>relative = 亲戚（相对于自己）</td></tr>
+<tr><td><code>absolute</code></td><td>相对「最近一个定位过的祖先」（找不到就相对页面）</td><td>absolute = 绝对（脱离文档流）</td></tr>
+<tr><td><code>fixed</code></td><td>相对浏览器窗口（滚动页面也不动）</td><td>fixed = 钉死（你的悬浮广告）</td></tr>
+</table>
+<pre><code>.ad-box {
+    position: fixed;
+    right: 20px;    /* 距右 */
+    bottom: 50px;   /* 距下 */
+    width: 120px;
+    height: 120px;
+    z-index: 999;   /* 层级，数字越大越靠上 */
+}</code></pre>
+<div class="mnemonic"><b>口诀：</b>静止 static、自己 relative、绝对 absolute、钉死 fixed。<br>
+<b>方向口诀：</b>top 上、right 右、bottom 下、left 左（顺时针）。<br>
+<b>z-index：</b>数字越大越靠上层（像楼层，越高越靠前）。</div>
+<div class="tip"><b>为什么 fixed 要写 top/right/bottom/left：</b>fixed 元素默认会停在它原来的位置。你必须用这四个方向把它「推到」想要的位置，比如 right:20px; bottom:50px 就是「距右 20、距下 50」。</div>
+</section>
+
+<section id="s10">
+<h2>10. 字体、文字、背景</h2>
+<table>
+<tr><th>属性</th><th>常用值</th><th>说明</th></tr>
+<tr><td><code>color</code></td><td><code>#ff4d4f</code> / <code>red</code> / <code>rgba(0,0,0,.3)</code></td><td>文字颜色</td></tr>
+<tr><td><code>font-size</code></td><td><code>16px</code></td><td>字号</td></tr>
+<tr><td><code>font-weight</code></td><td><code>normal</code> / <code>bold</code> / <code>700</code></td><td>粗细</td></tr>
+<tr><td><code>font-family</code></td><td><code>"Microsoft YaHei"</code></td><td>字体</td></tr>
+<tr><td><code>text-align</code></td><td><code>left</center</code>/<code>right</code></td><td>文字对齐</td></tr>
+<tr><td><code>text-decoration</code></td><td><code>none</code> / <code>underline</code></td><td>下划线（去链接下划线就用 none）</td></tr>
+<tr><td><code>line-height</code></td><td><code>1.6</code></td><td>行高，1.6 最舒服</td></tr>
+<tr><td><code>letter-spacing</code></td><td><code>2px</code></td><td>字间距</td></tr>
+<tr><td><code>background-color</code></td><td><code>aqua</code> / <code>#f0f0f0</code></td><td>背景色</td></tr>
+<tr><td><code>background-image</code></td><td><code>url("图片路径")</code></td><td>背景图</td></tr>
+<tr><td><code>background-size</code></td><td><code>cover</code> / <code>contain</code></td><td>cover 铺满裁切，contain 完整显示</td></tr>
+<tr><td><code>border-radius</code></td><td><code>10px</code></td><td>圆角</td></tr>
+<tr><td><code>box-shadow</code></td><td><code>0 4px 12px rgba(0,0,0,.3)</code></td><td>阴影（x偏移 y偏移 模糊 颜色）</td></tr>
+<tr><td><code>overflow</code></td><td><code>hidden</code> / <code>auto</code> / <code>scroll</code></td><td>溢出处理</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>文字四件套 color / font-size / font-weight / font-family；阴影记 <b>x y 模糊 颜色</b> 四段。</div>
+</section>
+
+<section id="s11">
+<h2>11. Flex 弹性布局（一维排列神器）</h2>
+<pre><code>.container {
+    display: flex;                /* 父容器开启弹性布局 */
+    justify-content: center;      /* 主轴方向：水平 */
+    align-items: center;          /* 交叉轴方向：垂直 */
+    gap: 20px;                    /* 间距（新写法，好用） */
+    flex-direction: row;          /* row 横排（默认） / column 竖排 */
+    flex-wrap: wrap;              /* 放不下自动换行 */
+}
+.child { flex: 1; }               /* 均分剩余空间 */</code></pre>
+<table>
+<tr><th>属性</th><th>管什么</th></tr>
+<tr><td><code>justify-content</code></td><td>主轴（左右，row 时）排列：flex-start / center / space-between / space-around</td></tr>
+<tr><td><code>align-items</code></td><td>交叉轴（上下）对齐：flex-start / center / stretch（默认拉伸）</td></tr>
+<tr><td><code>gap</code></td><td>子元素之间的间距</td></tr>
+<tr><td><code>flex: 1</code></td><td>平分父容器剩余空间（常用）</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>justify 管「前后左右」，align 管「上下高低」。<br>
+<b>direction 是 row 就左右分，column 就上下分。</b></div>
+</section>
+
+<section id="s12">
+<h2>12. JavaScript 与 DOM</h2>
+<pre><code>// 1) 找到元素
+document.getElementById('box1');        // 按 id 找，返回【一个】
+document.getElementsByClassName('box2'); // 按 class 找，返回【集合】
+document.querySelector('.box2');         // 选第一个，返回【一个】
+document.querySelectorAll('.item');      // 选全部，返回【集合】
+
+// 2) 改内容
+el.textContent = '新文字';   // 改纯文本
+el.innerHTML = '&lt;b&gt;新内容&lt;/b&gt;';  // 改 HTML（能塞标签）
+el.style.color = 'red';     // 改行内样式
+el.value = '输入框里的字';   // 改表单的值
+
+// 3) 加事件
+el.addEventListener('click', function () {
+    console.log('被点了！');
+});
+
+// 4) 增删改元素
+const li = document.createElement('li');
+li.textContent = '新的一项';
+ul.appendChild(li);   // 添加到末尾
+li.remove();          // 删除
+
+// 5) 存取本地数据
+localStorage.setItem('todo', JSON.stringify(list)); // 存
+const list = JSON.parse(localStorage.getItem('todo')) || []; // 取</code></pre>
+<table>
+<tr><th>概念</th><th>一句话</th></tr>
+<tr><td>DOM</td><td>浏览器把 HTML 变成一棵「对象树」，JS 通过它就能改网页</td></tr>
+<tr><td>变量</td><td><code>let</code>（可重新赋值）/ <code>const</code>（不可重新赋值）</td></tr>
+<tr><td>函数</td><td><code>function 名字(参数){ return 结果 }</code></td></tr>
+<tr><td>数组</td><td><code>[1,2,3]</code>，常用 <code>push/map/filter/forEach</code></td></tr>
+<tr><td>对象</td><td><code>{ 键: 值 }</code></td></tr>
+<tr><td>事件</td><td>用户动作：click / input / submit / keydown</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>getElement<b>ById</b> 单数返回一个，getElements<b>ByClassName</b> 复数返回一堆。<br>
+<b>三大能力口诀：</b>找元素 → 改内容 → 绑事件。</div>
+<div class="tip"><b>你的 DOM.html 已经做对了两件事：</b>① 用了 id / class / 普通标签三种选择器做对比；② 用 console.log 把找到的元素打印到控制台（F12 → Console）查看。以后每写一句 JS 都 console.log 一下，看得见就不会忘。</div>
+</section>
+
+<section id="s13">
+<h2>13. Git / Netlify 速查</h2>
+<pre><code>git status              # 看现在有哪些改动
+git add .               # 把改动放进暂存区
+git commit -m "说明"    # 存一个版本（说明要写人话）
+git push origin main    # 上传到 GitHub（必须开着 Clash！）</code></pre>
+<table>
+<tr><th>知识点</th><th>说明</th></tr>
+<tr><td>工作区 / 暂存区 / 仓库</td><td>改文件 → add → commit → push，四步流水线</td></tr>
+<tr><td>index.html</td><td>Netlify 首页只认这个名字（根目录必须有它）</td></tr>
+<tr><td>多页面</td><td>一个网站 = 一个文件夹 + 多个 html，用 &lt;a href="xx.html"&gt; 串起来</td></tr>
+</table>
+<div class="warn"><b>坑：</b>push 失败最常见原因是 Clash 没开（GitHub 直连不上），而且 VS Code 报错很不显眼。推之前确认：Clash 首页「系统代理」开关是亮的。</div>
+</section>
+
+<section id="s14">
+<h2>14. 自测题（先做，再看答案）</h2>
+<details><summary>1. 盒模型里，从里到外的顺序是？padding / border / margin / content</summary><p>答案：content → padding → border → margin（口诀 CPBM）。</p></details>
+<details><summary>2. <code>position: fixed</code> 是相对谁定位？</summary><p>答案：相对浏览器窗口，滚动页面也不动。</p></details>
+<details><summary>3. 想让 input 框变宽，用哪个属性？size 还是 width？</summary><p>答案：用 CSS 的 <code>width</code>。HTML 的 <code>size</code> 只能按字符数粗略调宽。</p></details>
+<details><summary>4. 单选按钮 radio 要互斥，靠什么？</summary><p>答案：给同组 radio 相同的 <code>name</code> 属性值。</p></details>
+<details><summary>5. <code>getElementsByClassName</code> 返回什么？</summary><p>答案：返回 HTMLCollection（集合，类似数组），取第一个要写 <code>[0]</code>。</p></details>
+<details><summary>6. 为什么我的 submit 按钮没显示？</summary><p>答案：type 值拼错了（写成了 subbmit），浏览器静默降级成 text 输入框。</p></details>
+<details><summary>7. flex 布局里，横向排列用哪个属性居中？</summary><p>答案：<code>justify-content: center</code>；纵向居中用 <code>align-items: center</code>。</p></details>
+<details><summary>8. Netlify 打开网址看到 404，最先查什么？</summary><p>答案：① 仓库根目录有没有 index.html；② 代码有没有 push 上去；③ 访问的路径对不对。</p></details>
+</section>
+
+<section id="s15">
+<h2>15. 踩坑字典（收藏起来，踩一次记一条）</h2>
+<table>
+<tr><th>现象</th><th>真正原因</th><th>解决</th></tr>
+<tr><td>网页一片空白</td><td>内容写在了 head 里</td><td>可见内容必须放 body</td></tr>
+<tr><td>中文乱码</td><td>缺 charset</td><td>加 &lt;meta charset="UTF-8"&gt;</td></tr>
+<tr><td>按钮不显示</td><td>type 值拼错</td><td>对照速查表检查拼写</td></tr>
+<tr><td>盒子比设定的大一圈</td><td>没设 box-sizing</td><td>加 box-sizing: border-box</td></tr>
+<tr><td>width/height 不起作用</td><td>元素是 inline</td><td>改 inline-block 或 block</td></tr>
+<tr><td>悬浮广告被内容盖住</td><td>没设 z-index 或父级有 transform</td><td>z-index 调大，父级别加 transform</td></tr>
+<tr><td>git push 失败</td><td>Clash 没开 / 网络不稳</td><td>开 Clash 系统代理后重试</td></tr>
+<tr><td>改了网页但没变化</td><td>浏览器缓存</td><td>Ctrl + F5 强制刷新</td></tr>
+<tr><td>图片显示裂图</td><td>路径写错</td><td>确认文件在同目录，写 ./图片.jpg</td></tr>
+</table>
+</section>
+
+</main>
+</div>
+</body>
+</html>
