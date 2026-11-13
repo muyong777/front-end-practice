@@ -66,6 +66,7 @@
 <nav>
     <div class="nt">目录</div>
     <a href="#s1">1. 页面骨架</a>
+    <a href="#s1b">1.5 语义化布局标签</a>
     <a href="#s2">2. 文本标签</a>
     <a href="#s3">3. 链接与图片</a>
     <a href="#s4">4. 列表与表格</a>
@@ -109,6 +110,35 @@
 </table>
 <div class="mnemonic"><b>口诀：</b>doctype 开门，html 大厅，head 后台，body 舞台。head 管设置，body 管内容。</div>
 <div class="tip"><b>你的例子：</b>index.html / demo.html / todo.html 全是这个骨架，复制过来改 title 和 body 就行。</div>
+</section>
+
+<section id="s1b">
+<h2>1.5 语义化布局标签（Day 1 内容，老教程常跳过）</h2>
+<div class="tip"><b>最重要的一句话：</b><code>&lt;header&gt;</code> 和 <code>&lt;div class="header"&gt;</code> 的显示效果<b>完全一样</b>。语义化标签不带来新功能、不改外观，只是「标签名自带含义」，让人、搜索引擎、读屏软件一眼看懂哪里是头、哪里是正文。</div>
+<pre><code>&lt;header&gt;网站名 / logo&lt;/header&gt;
+&lt;nav&gt;一组导航链接&lt;/nav&gt;
+&lt;main&gt;                     &lt;!-- 全页只能有一个 --&gt;
+    &lt;section&gt;              &lt;!-- 按主题分一章 --&gt;
+        &lt;article&gt;一篇文章&lt;/article&gt;
+        &lt;article&gt;另一篇文章&lt;/article&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;侧边补充内容&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;版权 / 联系方式&lt;/footer&gt;</code></pre>
+<table>
+<tr><th>标签</th><th>放什么</th><th>类比（报纸）</th></tr>
+<tr><td><code>&lt;header&gt;</code></td><td>网站名、logo、标题</td><td>报头</td></tr>
+<tr><td><code>&lt;nav&gt;</code></td><td>一组跳转链接</td><td>目录条</td></tr>
+<tr><td><code>&lt;main&gt;</code></td><td>整页核心内容，<b>只能有一个</b></td><td>正文版</td></tr>
+<tr><td><code>&lt;section&gt;</code></td><td>按主题切的一块，通常带标题</td><td>书里的一章</td></tr>
+<tr><td><code>&lt;article&gt;</code></td><td>单独拎出去也读得通的独立内容</td><td>可单独转载的文章</td></tr>
+<tr><td><code>&lt;aside&gt;</code></td><td>与主体相关但可拆走的补充</td><td>旁边的小花絮</td></tr>
+<tr><td><code>&lt;footer&gt;</code></td><td>版权、备案、联系方式</td><td>报尾</td></tr>
+</table>
+<div class="mnemonic"><b>口诀：</b>头 header、导航 nav、主体 main、章节 section、独立文章 article、旁边补充 aside、页脚 footer。<br>
+<b>三个易混的：</b>section = 一章；article = 能单独转载的一篇；aside = 可有可无的花絮。</div>
+<div class="warn"><b>坑：</b>① 一个页面只能有一个 <code>&lt;main&gt;</code>；② <code>&lt;nav&gt;</code> 只放「一组链接」，不要把所有链接都塞进去；③ CSS 里照样写 <code>header { }</code>、<code>nav a { }</code>，语法和写 class 没区别。</div>
+<div class="tip"><b>配套练习文件：</b><code>D01-语义化.html</code>（双击打开，每个区块上了不同底色方便看边界）。</div>
 </section>
 
 <section id="s2">

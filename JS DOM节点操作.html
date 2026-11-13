@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格的增删改查</title>
+<style>
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th,td{
+        /* ❌ 原来写的是 border: 1px solid ; 少了颜色值，整条声明会被浏览器丢弃，边框就不显示 */
+        border: 1px solid #cccccc;
+        text-align: center;
+        padding: 8px;
+    }
+    button{
+        margin: 5px;
+    }
+    th{
+        background-color: #ddd;
+    }
+</style>
+</head> 
+<body>
+    <h1 style="text-align: center;">表格的增删改查</h1>
+    <button onclick="addRow()">新增数据</button>
+     <table id="table">
+        <tr>
+            <th>姓名</th>
+            <th>联系方式</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>邱沅福</td>
+            <td>xxxxxxxx</td>
+            <td><button onclick="editRow(this)">编辑</button><button onclick="deleteRow(this)">删除</button></td>
+        </tr>
+     </table>
+     <script src="./js/table.js"></script>
+</body>
+</html>

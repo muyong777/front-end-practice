@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D01 · 语义化标签</title>
+    <style>
+        /* 给每个区块上不同底色，方便你一眼看清"块的边界"——不是必须的样式 */
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.7; margin: 0; color: #1f2937; }
+        header { background: #dbeafe; padding: 20px 24px; }
+        nav    { background: #e0e7ff; padding: 12px 24px; }
+        nav a  { margin-right: 18px; color: #1d4ed8; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        main   { padding: 20px 24px; background: #f9fafb; }
+        section{ background: #ecfdf5; border-left: 5px solid #10b981; padding: 14px 18px; margin: 14px 0; }
+        article{ background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+        aside  { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
+        footer { background: #f3f4f6; padding: 16px 24px; font-size: 13px; color: #6b7280; }
+    </style>
+</head>
+<body>
+
+<!--
+  ============================================================
+  D01 · 语义化标签（Day 1）
+  ------------------------------------------------------------
+  一句话：<div class="header"> 和 <header> 显示效果完全一样，
+          区别是后者"标签名自带含义"，人/搜索引擎/读屏软件都看得懂。
+
+  【口诀】头 header、导航 nav、主体 main、章节 section、
+          独立文章 article、旁边补充 aside、页脚 footer。
+
+  【三种盒子记法】
+    section  = 书里的"一章"（按主题切块）
+    article  = 能单独转载的"一篇文章"（拿出去也读得通）
+    aside    = 正文旁边的"小花絮"（删掉不影响主线）
+  ============================================================
+-->
+
+<!-- ① header 页头：网站名 / logo / 一句话介绍。一个页面可以有多个 header（比如每篇文章内部也能有），但通常整页只有一个 -->
+<header>
+    <h1>漆伟铭的前端练习站</h1>
+    <p>东华理工大学 · 软件学院 · 正在学 HTML</p>
+</header>
+
+<!-- ② nav 导航区：专门放"一组跳转链接"。你 index.html 里那 4 个 <a> 就该整体放这里 -->
+<nav>
+    <a href="index.html">首页</a>
+    <a href="demo.html">班助页</a>
+    <a href="todo.html">待办清单</a>
+    <a href="前端速查表.html">速查表</a>
+</nav>
+
+<!-- ③ main 主体：整页最核心的内容。**一个页面只能有一个 main** -->
+<main>
+
+    <!-- ④ section 章节：按主题切一块，习惯上里面带一个标题 -->
+    <section>
+        <h2>我最近在学什么</h2>
+
+        <!-- ⑤ article 独立文章：把这一块单独复制到别处，读者也能看懂 -->
+        <article>
+            <h3>表格的增删改查</h3>
+            <p>用 insertRow() 加行、insertCell() 加格子，按钮里用 this 找到自己所在的那一行。</p>
+        </article>
+
+        <article>
+            <h3>搞清楚了 Netlify 的 404</h3>
+            <p>首页必须叫 index.html；本地提交要 push 上去，Netlify 才会更新。</p>
+        </article>
+    </section>
+
+    <!-- ⑥ aside 侧边/补充内容：和主体相关，但拆走也不影响主线 -->
+    <aside>
+        <strong>小贴士</strong>：写完代码按 Ctrl + F5 强制刷新；JS 不生效就先按 F12 看 Console 的红色报错。
+    </aside>
+
+</main>
+
+<!-- ⑦ footer 页脚：版权、备案、联系方式、返回顶部 -->
+<footer>
+    <p>© 2026 漆伟铭 · 练习用页面 · <a href="#">返回顶部</a></p>
+</footer>
+
+<!--
+  【动手任务】照着上面自己再写一遍（别复制）：
+  1. 把 <header> 换成 <div class="header">，把 CSS 里的 header { } 换成 .header { }
+     → 你会发现页面长得一模一样。这就是"语义化不改变外观"。
+  2. 试着在 <main> 里再放一个 <main> → 浏览器不报错，但这是错的（全页只能一个）。
+  3. 用 F12 的「元素」面板点一下 <section>，看它是不是真的占一整行（块级元素）。
+-->
+</body>
+</html>
